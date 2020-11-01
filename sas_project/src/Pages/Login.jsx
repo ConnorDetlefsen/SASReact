@@ -106,6 +106,9 @@ class Login extends Component {
         this.context.currentUser.email = userList[x].email;
         this.context.currentUser.teamID = userList[x].team_id;
         this.context.currentUser.isManager = userList[x].manager;
+        this.context.currentUser.isMarketing = userList[x].marketing;
+        this.context.currentUser.isFinance = userList[x].finance;
+        this.context.currentUser.isConsultant = userList[x].consultant;
 
         //tracks user log in
         /*

@@ -28,10 +28,13 @@ class App extends Component {
     currentUser: {
       email: null,
       teamID: null,
-      isManager: null,
       budget: null,
       round: null,
       period: null,
+      isManager: null,
+      isMarketing: null,
+      isFinance: null,
+      isConsultant: null,
     },
   };
   render() {

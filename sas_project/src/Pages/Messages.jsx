@@ -21,10 +21,6 @@ class Messages extends Component {
       errors: {},
       team: [],
 
-      yes: false,
-      no: false,
-
-      question: [],
       submittedMessage: "",
       alreadyAnswered: false,
     };
@@ -37,64 +33,25 @@ class Messages extends Component {
         this.setState({ team: res.data });
         this.context.currentUser.budget = res.data.budget; //updates the context
       });
-    /*
-    http
-      .get(
-        config.apiEndpoint +
-          "/message/" +
-          this.context.currentUser.teamID +
-          "/" +
-          this.context.currentUser.round
-      )
-      .then((res) => {
-        if (res.data.message) {
-          this.setState({
-            submittedMessage: res.data.message,
-            alreadyAnswered: true,
-          });
-        }
-      });
-      */
-
-    http
-      .get(config.apiEndpoint + "/question/" + this.context.currentUser.round) //+ this round )
-      .then((res) => {
-        this.setState({ question: res.data[0] });
-      });
   }
 
   handleSubmit = async (e) => {
     e.preventDefault();
 
-    //this is where the post to database goes
-    /*
-    http
-      .post(config.apiEndpoint + "/message/", {
-        message: this.state.new_message,
-        team_id: this.context.currentUser.teamID,
-      })
-      .then((res) => {
-        console.log(res);
-        toast.success(`Message Sent`);
-      })
-      .catch((err) => {
-        toast.error(`Message could not be sent `);
-      }); */
-
     http.post(config.apiEndpoint + "/message/", {
       message: this.state.new_message,
       team_id: this.context.currentUser.teamID,
-      yesorno: this.state.yes,
       round_num: this.context.currentUser.round,
     });
     toast.success("Message Submitted");
   };
+  /*
   handleCheckBoxChange = (e) => {
     let state = e.currentTarget.attributes.stateVar.value; //this is the state var being changed by checking box
     this.setState((initialState) => ({
       [state]: !initialState[state],
     }));
-  };
+  };*/
 
   handleChange = (e) => {
     this.setState({ new_message: e.target.value });
@@ -131,48 +88,27 @@ class Messages extends Component {
                 </Grid>
               </Grid>
               <center>
-                {this.state.alreadyAnswered === false && (
-                  <form onSubmit={this.handleSubmit}>
-                    <div class="form-group">
-                      <br />
-                      <Box class="center">
-                        <Message description={this.state.question.question} />
-                        <MessagesCheckBox
-                          name="Yes"
-                          checked={this.state.yes}
-                          stateVar="yes"
-                          onChange={this.handleCheckBoxChange}
-                        />
-                        <br />
-                        <MessagesCheckBox
-                          name="No"
-                          checked={this.state.no}
-                          stateVar="no"
-                          onChange={this.handleCheckBoxChange}
-                        />
-                        <textarea
-                          onChange={this.handleChange}
-                          className="form-control"
-                          rows="6"
-                          cols="10"
-                        ></textarea>
-                      </Box>
-                    </div>
-                    <button
-                      // disabled={!this.context.currentUser.isManager}
-                      type="submit"
-                      class="btn btn-primary"
-                    >
-                      Submit
-                    </button>
-                  </form>
-                )}
-                {this.state.alreadyAnswered === true && (
-                  <div>
-                    <Message description={this.state.question.question} />
-                    <p>{this.state.submittedMessage}</p>
+                <form onSubmit={this.handleSubmit}>
+                  <div class="form-group">
+                    <br />
+                    <Box class="center">
+                      <p>Description here of what we want?</p>
+                      <textarea
+                        onChange={this.handleChange}
+                        className="form-control"
+                        rows="6"
+                        cols="10"
+                      ></textarea>
+                    </Box>
                   </div>
-                )}
+                  <button
+                    // disabled={!this.context.currentUser.isManager}
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+                    Submit
+                  </button>
+                </form>
               </center>
             </Box>
           </Container>

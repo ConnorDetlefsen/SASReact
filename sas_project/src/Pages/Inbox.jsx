@@ -27,11 +27,71 @@ class Inbox extends Component {
       history.push("/");
     }
 
-    http
-      .get(config.apiEndpoint + "/inbox/" + this.context.currentUser.teamID)
-      .then((res) => {
-        this.setState({ inbox: res.data });
-      });
+    if (this.context.currentUser.isFinance === true) {
+      http
+        .get(
+          config.apiEndpoint +
+            "/inbox/" +
+            this.context.currentUser.teamID +
+            "/" +
+            this.context.currentUser.round +
+            "/" +
+            this.context.currentUser.period +
+            "/Finance"
+        )
+        .then((res) => {
+          this.setState({ inbox: res.data });
+        });
+    }
+    if (this.context.currentUser.isManager === true) {
+      http
+        .get(
+          config.apiEndpoint +
+            "/inbox/" +
+            this.context.currentUser.teamID +
+            "/" +
+            this.context.currentUser.round +
+            "/" +
+            this.context.currentUser.period +
+            "/Manager"
+        )
+        .then((res) => {
+          this.setState({ inbox: res.data });
+        });
+    }
+    if (this.context.currentUser.isConsultant === true) {
+      http
+        .get(
+          config.apiEndpoint +
+            "/inbox/" +
+            this.context.currentUser.teamID +
+            "/" +
+            this.context.currentUser.round +
+            "/" +
+            this.context.currentUser.period +
+            "/Consultant"
+        )
+        .then((res) => {
+          this.setState({ inbox: res.data });
+        });
+    }
+    if (this.context.currentUser.isMarketing === true) {
+      http
+        .get(
+          config.apiEndpoint +
+            "/inbox/" +
+            this.context.currentUser.teamID +
+            "/" +
+            this.context.currentUser.round +
+            "/" +
+            this.context.currentUser.period +
+            "/Marketing"
+        )
+        .then((res) => {
+          this.setState({ inbox: res.data });
+        });
+    }
+
     http
       .get(config.apiEndpoint + "/team/" + this.context.currentUser.teamID)
       .then((res) => {
@@ -84,13 +144,11 @@ class Inbox extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {inbox.map((inbox) => (
-                        <tr key={inbox.inbox_id}>
-                          <td>{("" + inbox.stamp).substring(0, 10)}</td>
-                          <td>{inbox.sender}</td>
-                          <td>{inbox.message}</td>
-                        </tr>
-                      ))}
+                      <tr>
+                        <td>{("" + inbox.stamp).substring(0, 10)}</td>
+                        <td>{inbox.sender}</td>
+                        <td>{inbox.message}</td>
+                      </tr>
                     </tbody>
                   </table>
                 </center>

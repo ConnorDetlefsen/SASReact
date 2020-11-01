@@ -29,6 +29,9 @@ class Marketing extends Component {
     marketingBools: [],
 
     test: false,
+
+    featureBools: [],
+    features: [],
   };
 
   async componentDidMount() {
@@ -44,6 +47,36 @@ class Marketing extends Component {
         this.setState({ team: res.data });
         this.context.currentUser.budget = res.data.budget; //updates the context
       });
+    http
+      .get(
+        config.apiEndpoint +
+          "/parkoptions/" +
+          +this.context.currentUser.round +
+          "/" +
+          this.context.currentUser.period
+      ) // round | period
+      .then((res) => {
+        this.setState({
+          features: res.data,
+        });
+      });
+
+    http
+      .get(
+        config.apiEndpoint +
+          "/parkfeatures/" +
+          +this.context.currentUser.round +
+          "/" +
+          this.context.currentUser.period +
+          "/" +
+          this.context.currentUser.teamID
+      ) // round | period
+      .then((res) => {
+        this.setState({
+          featureBools: res.data,
+        });
+      });
+
     http
       .get(
         config.apiEndpoint +
@@ -177,102 +210,110 @@ class Marketing extends Component {
                 </Grid>
               </Grid>
               <br />
-              <Box class="columns2">
-                <div class="column">
-                  {facebook === true && (
-                    <div>
-                      <MarketingPack
-                        image={FacebookImage}
-                        name="Facebook"
-                        value="5000"
-                        onClick={this.onClick}
-                        purchased="true"
-                      />
-                    </div>
-                  )}
-                  {facebook === false && (
-                    <div>
-                      <MarketingPack
-                        image={FacebookImage}
-                        name="Facebook"
-                        value="5000"
-                        onClick={this.onClick}
-                        displayButton="true"
-                      />
-                    </div>
-                  )}
-                  <br />
-                  {twitter === true && (
-                    <div>
-                      <MarketingPack
-                        image={TwitterImage}
-                        name="Twitter"
-                        value="5000"
-                        onClick={this.onClick}
-                        purchased="true"
-                      />
-                    </div>
-                  )}
-                  {twitter === false && (
-                    <div>
-                      <MarketingPack
-                        image={TwitterImage}
-                        name="Twitter"
-                        value="5000"
-                        onClick={this.onClick}
-                        displayButton="true"
-                      />
-                    </div>
-                  )}
-                </div>
-                <div class="column">
-                  {instagram === true && (
-                    <div>
-                      <MarketingPack
-                        image={InstagramImage}
-                        name="Instagram"
-                        value="5000"
-                        onClick={this.onClick}
-                        purchased="true"
-                      />
-                    </div>
-                  )}
-                  {instagram === false && (
-                    <div>
-                      <MarketingPack
-                        image={InstagramImage}
-                        name="Instagram"
-                        value="5000"
-                        onClick={this.onClick}
-                        displayButton="true"
-                      />
-                    </div>
-                  )}
-                  <br />
-                  {television === true && (
-                    <div>
-                      <MarketingPack
-                        image={TVImage}
-                        name="Television"
-                        value="5000"
-                        onClick={this.onClick}
-                        purchased="true"
-                      />
-                    </div>
-                  )}
-                  {television === false && (
-                    <div>
-                      <MarketingPack
-                        image={TVImage}
-                        name="Television"
-                        value="5000"
-                        onClick={this.onClick}
-                        displayButton="true"
-                      />
-                    </div>
-                  )}
-                </div>
+              <Box class="columns4">
+                {facebook === true && (
+                  <div>
+                    <MarketingPack
+                      image={FacebookImage}
+                      name="Facebook"
+                      value="5000"
+                      onClick={this.onClick}
+                      purchased="true"
+                    />
+                  </div>
+                )}
+                {facebook === false && (
+                  <div>
+                    <MarketingPack
+                      image={FacebookImage}
+                      name="Facebook"
+                      value="5000"
+                      onClick={this.onClick}
+                      displayButton="true"
+                    />
+                  </div>
+                )}
+                <br />
+                {twitter === true && (
+                  <div>
+                    <MarketingPack
+                      image={TwitterImage}
+                      name="Twitter"
+                      value="5000"
+                      onClick={this.onClick}
+                      purchased="true"
+                    />
+                  </div>
+                )}
+                {twitter === false && (
+                  <div>
+                    <MarketingPack
+                      image={TwitterImage}
+                      name="Twitter"
+                      value="5000"
+                      onClick={this.onClick}
+                      displayButton="true"
+                    />
+                  </div>
+                )}
+                <br />
+
+                {instagram === true && (
+                  <div>
+                    <MarketingPack
+                      image={InstagramImage}
+                      name="Instagram"
+                      value="5000"
+                      onClick={this.onClick}
+                      purchased="true"
+                    />
+                  </div>
+                )}
+                {instagram === false && (
+                  <div>
+                    <MarketingPack
+                      image={InstagramImage}
+                      name="Instagram"
+                      value="5000"
+                      onClick={this.onClick}
+                      displayButton="true"
+                    />
+                  </div>
+                )}
+                <br />
+                {television === true && (
+                  <div>
+                    <MarketingPack
+                      image={TVImage}
+                      name="Television"
+                      value="5000"
+                      onClick={this.onClick}
+                      purchased="true"
+                    />
+                  </div>
+                )}
+                {television === false && (
+                  <div>
+                    <MarketingPack
+                      image={TVImage}
+                      name="Television"
+                      value="5000"
+                      onClick={this.onClick}
+                      displayButton="true"
+                    />
+                  </div>
+                )}
               </Box>
+              <Grid item xs={12}>
+                <Box
+                  p={1}
+                  textAlign="center"
+                  fontWeight="fontWeightBold"
+                  className="bg-blue box-shadow rounded"
+                >
+                  Features
+                </Box>
+              </Grid>
             </Box>
           </Container>
         </Box>
