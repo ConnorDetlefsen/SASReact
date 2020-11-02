@@ -27,6 +27,8 @@ class BuyData extends Component {
     team: [],
 
     test: false,
+
+    dataLinks: [],
   };
 
   /*
@@ -53,7 +55,29 @@ class BuyData extends Component {
     });
 
     http
-      .get(config.apiEndpoint + "/buydata/" + this.context.currentUser.teamID)
+      .get(
+        config.apiEndpoint +
+          "/filename/" +
+          this.context.currentUser.round +
+          "/" +
+          this.context.currentUser.period +
+          "/" +
+          this.context.currentUser.teamID
+      )
+      .then((res) => {
+        this.setState({ datalinks: res.data });
+      });
+
+    http
+      .get(
+        config.apiEndpoint +
+          "/buydata/" +
+          this.context.currentUser.teamID +
+          "/" +
+          this.context.currentUser.round +
+          "/" +
+          this.context.currentUser.period
+      )
       .then((res) => {
         console.log(res.data);
         this.setState({ purchasedData: res.data });
@@ -113,7 +137,13 @@ class BuyData extends Component {
     this.state.purchasedData[id] = true;
     toast.success("Data Pack Purchased");
     http.put(
-      config.apiEndpoint + "/buydata/" + this.context.currentUser.teamID,
+      config.apiEndpoint +
+        "/buydata/" +
+        this.context.currentUser.teamID +
+        "/" +
+        this.context.currentUser.round +
+        "/" +
+        this.context.currentUser.period,
       this.state.purchasedData
     );
   };
@@ -123,7 +153,7 @@ class BuyData extends Component {
   };
 
   render() {
-    const { data } = this.state;
+    const { data, dataLinks } = this.state;
     return (
       <React.Fragment>
         <ToastContainer />
@@ -157,63 +187,69 @@ class BuyData extends Component {
               <Box class="columns">
                 <DataPack
                   value={5000}
-                  description="first description"
+                  description="Weather DataPack"
                   onClick={(e) => {
                     this.handleClick(e);
                   }}
                   id="1"
                   disabled={this.state.purchasedData.data1}
                   isPurchased={this.state.purchasedData.data1}
+                  dataLink={dataLinks.filename1}
                 ></DataPack>
                 <DataPack
                   value={5000}
-                  description="Second description"
+                  description="Basic Engineering Report"
                   onClick={(e) => {
                     this.handleClick(e);
                   }}
                   id="2"
                   disabled={this.state.purchasedData.data2}
                   isPurchased={this.state.purchasedData.data2}
+                  dataLink={dataLinks.filename2}
                 ></DataPack>
                 <DataPack
                   value={5000}
-                  description="Third description"
+                  description="Advanced Engineering Report"
                   onClick={(e) => {
                     this.handleClick(e);
                   }}
                   id="3"
                   disabled={this.state.purchasedData.data3}
                   isPurchased={this.state.purchasedData.data3}
+                  dataLink={dataLinks.filename3}
                 ></DataPack>
                 <DataPack
                   value={5000}
-                  description="fourth description"
+                  description="Visitor DataPack"
                   onClick={(e) => {
                     this.handleClick(e);
                   }}
                   id="4"
                   disabled={this.state.purchasedData.data4}
                   isPurchased={this.state.purchasedData.data4}
+                  dataLink={dataLinks.filename4}
                 ></DataPack>
                 <DataPack
                   value={5000}
-                  description="fifth description"
+                  description="Ticket Sales DataPack"
                   onClick={(e) => {
                     this.handleClick(e);
                   }}
                   id="5"
                   disabled={this.state.purchasedData.data5}
                   isPurchased={this.state.purchasedData.data5}
+                  dataLink={dataLinks.filename5}
                 ></DataPack>
                 <DataPack
                   value={5000}
-                  description="sixth description"
+                  description="Competitor DataPack"
                   onClick={(e) => {
                     this.handleClick(e);
                   }}
                   id="6"
                   disabled={this.state.purchasedData.data6}
                   isPurchased={this.state.purchasedData.data6}
+                  dataLink={dataLinks.filename6}
                 ></DataPack>
               </Box>
             </Box>

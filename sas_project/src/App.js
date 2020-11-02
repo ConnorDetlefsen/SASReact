@@ -11,8 +11,8 @@ import BuyData from "./Pages/BuyData";
 import Inbox from "./Pages/Inbox";
 import Map from "./Pages/Map";
 import BuyRides from "./Pages/BuyRides";
-import BuyRides2 from "./Pages/BuyRides3";
-import BuyRides3 from "./Pages/BuyRides2";
+import BuyRides2 from "./Pages/BuyRides2";
+import BuyRides3 from "./Pages/BuyRides3";
 
 import { UserContext } from "./Context/UserContext";
 import { ToastContainer } from "react-toastify";

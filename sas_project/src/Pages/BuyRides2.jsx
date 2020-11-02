@@ -24,15 +24,6 @@ class BuyRides2 extends Component {
     ride15Purchased: false,
     ride16Purchased: false,
 
-    kidFriendly9: false,
-    kidFriendly10: false,
-    kidFriendly11: false,
-    kidFriendly12: false,
-    kidFriendly13: false,
-    kidFriendly14: false,
-    kidFriendly15: false,
-    kidFriendly16: false,
-
     rideOptions: [],
 
     ride9: [],
@@ -147,7 +138,6 @@ class BuyRides2 extends Component {
     );
     //end budget check
 
-    let kidBool = e.currentTarget.attributes.stateVar.value;
     let RideLengthTest = parseInt(e.currentTarget.attributes.time.value, 10);
     let rideID = parseInt(e.currentTarget.id, 10);
     http
@@ -157,10 +147,8 @@ class BuyRides2 extends Component {
         ride_length: RideLengthTest,
         seats: 4,
         description: e.currentTarget.name,
-        kid_friendly: this.state[kidBool],
-        waterproof: false,
-        enclosure: false,
-        damaged: false,
+
+        status: 1.0,
       })
       .then((res) => {
         console.log(res);
@@ -182,21 +170,14 @@ class BuyRides2 extends Component {
 
   render() {
     const {
-      kidFriendly9,
       ride9,
-      kidFriendly10,
       ride10,
-      kidFriendly11,
       ride11,
-      kidFriendly12,
       ride12,
-      kidFriendly13,
       ride13,
-      kidFriendly14,
       ride14,
-      kidFriendly15,
       ride15,
-      kidFriendly16,
+
       ride16,
     } = this.state;
     return (
@@ -236,10 +217,7 @@ class BuyRides2 extends Component {
                   value={ride9.price}
                   time={ride9.ride_length}
                   purchased={this.state.ridesPurchased.ride9}
-                  stateVar="kidFriendly9"
-                  checked={kidFriendly9}
                   onClick={this.handleClick}
-                  onChange={this.handleCheckBoxChange}
                   id={ride9.ride_id}
                 ></Ride>
                 <Ride
@@ -247,10 +225,7 @@ class BuyRides2 extends Component {
                   value={ride10.price}
                   time={ride10.ride_length}
                   purchased={this.state.ridesPurchased.ride10}
-                  stateVar="kidFriendly10"
-                  checked={kidFriendly10}
                   onClick={this.handleClick}
-                  onChange={this.handleCheckBoxChange}
                   id={ride10.ride_id}
                 ></Ride>
                 <Ride
@@ -258,10 +233,7 @@ class BuyRides2 extends Component {
                   value={ride11.price}
                   time={ride11.ride_length}
                   purchased={this.state.ridesPurchased.ride11}
-                  stateVar="kidFriendly11"
-                  checked={kidFriendly11}
                   onClick={this.handleClick}
-                  onChange={this.handleCheckBoxChange}
                   id={ride11.ride_id}
                 ></Ride>
                 <Ride
@@ -269,10 +241,7 @@ class BuyRides2 extends Component {
                   value={ride12.price}
                   time={ride12.ride_length}
                   purchased={this.state.ridesPurchased.ride12}
-                  stateVar="kidFriendly12"
-                  checked={kidFriendly12}
                   onClick={this.handleClick}
-                  onChange={this.handleCheckBoxChange}
                   id={ride12.ride_id}
                 ></Ride>
                 <Ride
@@ -280,10 +249,7 @@ class BuyRides2 extends Component {
                   value={ride13.price}
                   time={ride13.ride_length}
                   purchased={this.state.ridesPurchased.ride13}
-                  stateVar="kidFriendly13"
-                  checked={kidFriendly13}
                   onClick={this.handleClick}
-                  onChange={this.handleCheckBoxChange}
                   id={ride13.ride_id}
                 ></Ride>
                 <Ride
@@ -291,10 +257,7 @@ class BuyRides2 extends Component {
                   value={ride14.price}
                   time={ride14.ride_length}
                   purchased={this.state.ridesPurchased.ride14}
-                  stateVar="kidFriendly14"
-                  checked={kidFriendly14}
                   onClick={this.handleClick}
-                  onChange={this.handleCheckBoxChange}
                   id={ride14.ride_id}
                 ></Ride>
                 <Ride
@@ -302,10 +265,7 @@ class BuyRides2 extends Component {
                   value={ride15.price}
                   time={ride15.ride_length}
                   purchased={this.state.ridesPurchased.ride15}
-                  stateVar="kidFriendly15"
-                  checked={kidFriendly15}
                   onClick={this.handleClick}
-                  onChange={this.handleCheckBoxChange}
                   id={ride15.ride_id}
                 ></Ride>
                 <Ride
@@ -313,10 +273,7 @@ class BuyRides2 extends Component {
                   value={ride16.price}
                   time={ride16.ride_length}
                   purchased={this.state.ridesPurchased.ride16}
-                  stateVar="kidFriendly16"
-                  checked={kidFriendly16}
                   onClick={this.handleClick}
-                  onChange={this.handleCheckBoxChange}
                   id={ride16.ride_id}
                 ></Ride>
               </div>

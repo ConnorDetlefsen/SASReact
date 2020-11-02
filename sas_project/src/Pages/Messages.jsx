@@ -21,9 +21,12 @@ class Messages extends Component {
       errors: {},
       team: [],
 
+      selectValue: "Message to your company",
+
       submittedMessage: "",
       alreadyAnswered: false,
     };
+    this.handleDropdownChange = this.handleDropdownChange.bind(this);
   }
 
   async componentDidMount() {
@@ -39,6 +42,7 @@ class Messages extends Component {
     e.preventDefault();
 
     http.post(config.apiEndpoint + "/message/", {
+      subject_line: this.state.selectValue,
       message: this.state.new_message,
       team_id: this.context.currentUser.teamID,
       round_num: this.context.currentUser.round,
@@ -60,6 +64,10 @@ class Messages extends Component {
   onFinishPeriod = (e) => {
     console.log("submit");
   };
+
+  handleDropdownChange(e) {
+    this.setState({ selectValue: e.target.value });
+  }
 
   render() {
     return (
@@ -97,6 +105,23 @@ class Messages extends Component {
                     <br />
                     <Box class="center">
                       <p>Description here of what we want?</p>
+                      <label>
+                        Subject Line:
+                        <select
+                          id="dropdown"
+                          class=" form-control form-control-sm "
+                          onChange={this.handleDropdownChange}
+                          value={this.state.selectValue}
+                        >
+                          <option value="Message to your company">
+                            Message to your company
+                          </option>
+                          <option value="Video to your company">
+                            Video to your company
+                          </option>
+                          <option value="Daily update">Daily update</option>
+                        </select>
+                      </label>
                       <textarea
                         onChange={this.handleChange}
                         className="form-control"

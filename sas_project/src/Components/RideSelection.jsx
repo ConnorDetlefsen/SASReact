@@ -22,15 +22,7 @@ const RideSelection = ({
           <p>
             ${value} | {time} Minutes
           </p>
-          <label class="form-check-label">
-            <input
-              type="checkbox"
-              stateVar={stateVar}
-              checked={checked}
-              onChange={onChange}
-            />
-            Kid Friendly?
-          </label>
+
           <br />
           {!purchased && (
             <button
