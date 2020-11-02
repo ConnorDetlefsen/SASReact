@@ -5,6 +5,7 @@ import http from "../APIServices/httpService";
 import config from "../APIServices/config.json";
 import { ToastContainer, toast } from "react-toastify";
 import UserContext from "../Context/UserContext";
+import logo from "./In-Quire.png";
 
 class Login extends Component {
   static contextType = UserContext;
@@ -145,11 +146,14 @@ class Login extends Component {
     return (
       <React.Fragment>
         <ToastContainer />
-
+        <div align = "center">
+          <img src={logo} alt="inquire logo" width="320px" height="155px"></img>
+        </div>
+       
         <div className="login-body">
           <div className="login-page ">
             <div className="login-css">
-              <div className="login-form">
+              <div className="form">
                 <div className="login">
                   <div className="Login Header">
                     <h1>

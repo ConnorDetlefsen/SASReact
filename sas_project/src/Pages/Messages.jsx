@@ -127,6 +127,7 @@ class Messages extends Component {
                         className="form-control"
                         rows="6"
                         cols="10"
+                        maxLength={920} 
                       ></textarea>
                     </Box>
                   </div>
