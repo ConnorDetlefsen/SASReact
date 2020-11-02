@@ -276,6 +276,10 @@ class RideMaintenance extends Component {
     history.push("/buyride");
   };
 
+  onFinishPeriod = (e) => {
+    console.log("submit");
+  };
+
   render() {
     const {
       buyMinutes,
@@ -309,7 +313,7 @@ class RideMaintenance extends Component {
       <React.Fragment>
         <ToastContainer />
         <Box display="flex" id="wrapper">
-          <Sidebar activePage="rides" />
+          <Sidebar activePage="rides" onFinishPeriod={this.onFinishPeriod} />
           <Container id="page-content-wrapper">
             <NavBar
               pagename="Rides"

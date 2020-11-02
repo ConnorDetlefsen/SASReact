@@ -98,6 +98,11 @@ class Inbox extends Component {
         this.setState({ team: res.data });
       });
   }
+
+  onFinishPeriod = (e) => {
+    console.log("submit");
+  };
+
   render() {
     const { inbox } = this.state;
 
@@ -106,7 +111,7 @@ class Inbox extends Component {
         <ToastContainer />
 
         <Box display="flex" id="wrapper">
-          <Sidebar activePage="inbox" />
+          <Sidebar activePage="inbox" onFinishPeriod={this.onFinishPeriod} />
           <Container id="page-content-wrapper">
             <NavBar
               pagename="Inbox"

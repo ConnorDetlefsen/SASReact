@@ -176,6 +176,10 @@ class BuyRides2 extends Component {
     );
   };
 
+  onFinishPeriod = (e) => {
+    console.log("submit");
+  };
+
   render() {
     const {
       kidFriendly9,
@@ -199,7 +203,7 @@ class BuyRides2 extends Component {
       <React.Fragment>
         <ToastContainer />
         <Box display="flex" id="wrapper">
-          <Sidebar activePage="rides" />
+          <Sidebar activePage="rides" onFinishPeriod={this.onFinishPeriod} />
           <Container id="page-content-wrapper">
             <NavBar
               pagename="map"

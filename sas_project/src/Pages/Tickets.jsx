@@ -77,6 +77,10 @@ class Tickets extends Component {
     this.setState({ test: true });
   };
 
+  onFinishPeriod = (e) => {
+    console.log("submit");
+  };
+
   render() {
     //let btn_class = (this.state.selected = "selected");
     const { teamTickets } = this.state;
@@ -86,7 +90,7 @@ class Tickets extends Component {
         <ToastContainer />
 
         <Box display="flex" id="wrapper">
-          <Sidebar activePage="tickets" />
+          <Sidebar activePage="tickets" onFinishPeriod={this.onFinishPeriod} />
           <Container id="page-content-wrapper">
             <NavBar
               budget={this.context.currentUser.budget}

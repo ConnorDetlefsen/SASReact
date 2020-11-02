@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import Marketing from "./Pages/Marketing";
+import Features from "./Pages/Features";
 import RidemMaintenance from "./Pages/RideMaintenance";
 import Overview from "./Pages/Overview";
 import Tickets from "./Pages/Tickets";
@@ -48,7 +48,7 @@ class App extends Component {
         >
           <ToastContainer />
           <Switch>
-            <Route path="/marketing" component={Marketing} />
+            <Route path="/features" component={Features} />
             <Route path="/rideMaintenance" component={RidemMaintenance} />
             <Route path="/buyRide" component={BuyRides} />
             <Route path="/buyRide2" component={BuyRides2} />

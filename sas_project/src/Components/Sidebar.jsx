@@ -14,7 +14,7 @@ import {
   CheckBoxOutlined,
 } from "@material-ui/icons";
 
-const sideBar = ({ activePage }) => {
+const sideBar = ({ activePage, onFinishPeriod }) => {
   return (
     <React.Fragment>
       <ToastContainer />
@@ -80,12 +80,12 @@ const sideBar = ({ activePage }) => {
             </Link>
             <Link
               class={`sidebar-item ${
-                activePage === "marketing" ? "active" : ""
+                activePage === "features" ? "active" : ""
               }`}
-              to="/marketing"
+              to="/features"
             >
               <AttachMoneyOutlined fontSize="large" />
-              <p>Marketing</p>
+              <p>Features</p>
             </Link>
             <Link
               class={`sidebar-item ${
@@ -98,10 +98,10 @@ const sideBar = ({ activePage }) => {
             </Link>
             <Link
               class={`sidebar-item ${activePage === "finish" ? "active" : ""}`}
-              to="/finish"
+              onClick={onFinishPeriod}
             >
               <CheckBoxOutlined fontSize="large" />
-              <p>Finish</p>
+              <p>Finish Period</p>
             </Link>
           </div>
         </center>

@@ -118,10 +118,8 @@ class Login extends Component {
           })
           .then((res) => {
             console.log(res);
-          });
-        
+          });      
 */
-
         for (let x in teams) {
           if (this.context.currentUser.teamID === teams[x].team_id) {
             this.context.currentUser.budget = teams[x].budget;

@@ -12,12 +12,16 @@ class Finances extends Component {
   static contextType = UserContext;
 
   state = {};
+
+  onFinishPeriod = (e) => {
+    console.log("submit");
+  };
   render() {
     return (
       <React.Fragment>
         <ToastContainer />
         <Box display="flex" id="wrapper">
-          <Sidebar activePage="finances" />
+          <Sidebar activePage="finances" onFinishPeriod={this.onFinishPeriod} />
           <Container id="page-content-wrapper">
             <NavBar
               pagename="Marketing"

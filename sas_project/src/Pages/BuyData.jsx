@@ -118,13 +118,17 @@ class BuyData extends Component {
     );
   };
 
+  onFinishPeriod = (e) => {
+    console.log("submit");
+  };
+
   render() {
     const { data } = this.state;
     return (
       <React.Fragment>
         <ToastContainer />
         <Box display="flex" id="wrapper">
-          <Sidebar activePage="buydata" />
+          <Sidebar activePage="buydata" onFinishPeriod={this.onFinishPeriod} />
           <Container id="page-content-wrapper">
             <NavBar
               pagename="Buy Data"

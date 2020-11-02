@@ -25,11 +25,15 @@ class Overview extends Component {
     this.setState({ test: true });
   };*/
 
+  onFinishPeriod = (e) => {
+    console.log("submit");
+  };
+
   render() {
     return (
       <React.Fragment>
         <Box display="flex" id="wrapper">
-          <Sidebar activePage="overview" />
+          <Sidebar activePage="overview" onFinishPeriod={this.onFinishPeriod} />
           <Container id="page-content-wrapper">
             <NavBar
               budget={this.context.currentUser.budget}

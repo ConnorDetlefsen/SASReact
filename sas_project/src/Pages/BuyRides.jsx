@@ -193,6 +193,10 @@ class BuyRides extends Component {
     //update ridespurchased table here
   };
 
+  onFinishPeriod = (e) => {
+    console.log("submit");
+  };
+
   render() {
     const {
       kidFriendly1,
@@ -216,7 +220,7 @@ class BuyRides extends Component {
       <React.Fragment>
         <ToastContainer />
         <Box display="flex" id="wrapper">
-          <Sidebar activePage="rides" />
+          <Sidebar activePage="rides" onFinishPeriod={this.onFinishPeriod} />
           <Container id="page-content-wrapper">
             <NavBar
               pagename="map"
@@ -341,7 +345,7 @@ class BuyRides extends Component {
                   id={ride8.ride_id}
                 ></Ride>
               </div>
-              <br></br>
+              <br />
               <button
                 onClick={this.onRideMaintenance}
                 class="btn btn-primary leftButton"

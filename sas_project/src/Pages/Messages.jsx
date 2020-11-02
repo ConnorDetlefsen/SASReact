@@ -57,12 +57,16 @@ class Messages extends Component {
     this.setState({ new_message: e.target.value });
   };
 
+  onFinishPeriod = (e) => {
+    console.log("submit");
+  };
+
   render() {
     return (
       <React.Fragment>
         <ToastContainer />
         <Box display="flex" id="wrapper">
-          <Sidebar activePage="messages" />
+          <Sidebar activePage="messages" onFinishPeriod={this.onFinishPeriod} />
           <Container id="page-content-wrapper">
             <NavBar
               pagename="map"

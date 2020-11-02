@@ -15,12 +15,16 @@ class Map extends Component {
   static contextType = UserContext;
 
   state = {};
+
+  onFinishPeriod = (e) => {
+    console.log("submit");
+  };
   render() {
     return (
       <React.Fragment>
         <ToastContainer />
         <Box display="flex" id="wrapper">
-          <Sidebar activePage="map" />
+          <Sidebar activePage="map" onFinishPeriod={this.onFinishPeriod} />
           <Container id="page-content-wrapper">
             <NavBar
               pagename="map"
