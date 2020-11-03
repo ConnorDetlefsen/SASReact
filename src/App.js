@@ -33,7 +33,7 @@ class App extends Component {
       period: null,
       isManager: null,
       isMarketing: null,
-      isFinance: null,
+      isEngineer: null,
       isConsultant: null,
     },
   };

@@ -7,6 +7,7 @@ const MarketingPack = ({
   onClick,
   purchased,
   displayButton,
+  disabled,
 }) => {
   return (
     <div class="cardData">
@@ -20,6 +21,7 @@ const MarketingPack = ({
       <h5>{name}</h5>
       {displayButton && (
         <button
+          disabled={disabled}
           type="button"
           onClick={onClick}
           class="btn btn-primary"

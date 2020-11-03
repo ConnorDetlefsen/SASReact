@@ -145,7 +145,7 @@ class Messages extends Component {
                     </Box>
                   </div>
                   <button
-                    // disabled={!this.context.currentUser.isManager}
+                    disabled={!this.context.currentUser.isManager}
                     type="submit"
                     class="btn btn-primary"
                   >

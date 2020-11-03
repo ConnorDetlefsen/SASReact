@@ -77,6 +77,11 @@ class Tickets extends Component {
   }
 */
   handleClick = (e) => {
+    if (!this.currentUser.isManager) {
+      toast.error("Only the manager can submit ticket options.");
+      return;
+    }
+
     let type = e.currentTarget.attributes.databasename.value;
     let displayName = e.currentTarget.name;
     let id = e.currentTarget.id;

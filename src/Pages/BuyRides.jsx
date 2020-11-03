@@ -280,6 +280,9 @@ class BuyRides extends Component {
                   purchased={this.state.ridesPurchased.ride1}
                   onClick={this.handleClick}
                   id={ride1.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   name={ride2.description}
@@ -289,6 +292,9 @@ class BuyRides extends Component {
                   purchased={this.state.ridesPurchased.ride2}
                   onClick={this.handleClick}
                   id={ride2.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   name={ride3.description}
@@ -298,6 +304,9 @@ class BuyRides extends Component {
                   purchased={this.state.ridesPurchased.ride3}
                   onClick={this.handleClick}
                   id={ride3.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   name={ride4.description}
@@ -307,6 +316,9 @@ class BuyRides extends Component {
                   purchased={this.state.ridesPurchased.ride4}
                   onClick={this.handleClick}
                   id={ride4.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   name={ride5.description}
@@ -316,6 +328,9 @@ class BuyRides extends Component {
                   purchased={this.state.ridesPurchased.ride5}
                   onClick={this.handleClick}
                   id={ride5.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   name={ride6.description}
@@ -325,6 +340,9 @@ class BuyRides extends Component {
                   purchased={this.state.ridesPurchased.ride6}
                   onClick={this.handleClick}
                   id={ride6.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   name={ride7.description}
@@ -334,6 +352,9 @@ class BuyRides extends Component {
                   purchased={this.state.ridesPurchased.ride7}
                   onClick={this.handleClick}
                   id={ride7.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   name={ride8.description}
@@ -343,6 +364,9 @@ class BuyRides extends Component {
                   purchased={this.state.ridesPurchased.ride8}
                   onClick={this.handleClick}
                   id={ride8.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
               </div>
               <br />

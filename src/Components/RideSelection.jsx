@@ -12,6 +12,7 @@ const RideSelection = ({
   displayButton,
   onClick,
   id,
+  disabled,
 }) => {
   return (
     <React.Fragment>
@@ -34,6 +35,7 @@ const RideSelection = ({
               name={name}
               id={id}
               stateVar={stateVar}
+              disabled={disabled}
             >
               Purchase: ${value}
             </button>

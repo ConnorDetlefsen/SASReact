@@ -397,6 +397,10 @@ class RideMaintenance extends Component {
 
                       <td>
                         <button
+                          disabled={
+                            !this.currentUser.isManager &&
+                            !this.currentUser.isEngineer
+                          }
                           class="btn btn-primary"
                           name={rides.description}
                           id={rides.team_ride_num}

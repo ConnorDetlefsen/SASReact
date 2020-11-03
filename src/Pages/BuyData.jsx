@@ -211,7 +211,10 @@ class BuyData extends Component {
                     this.handleClick(e);
                   }}
                   id="1"
-                  disabled={this.state.purchasedData.data1}
+                  disabled={
+                    this.state.purchasedData.data1 ||
+                    !this.currentUser.isManager
+                  }
                   isPurchased={this.state.purchasedData.data1}
                   dataLink={
                     "https://sas-buydata-files.s3-us-west-1.amazonaws.com/" +
@@ -228,7 +231,10 @@ class BuyData extends Component {
                     this.handleClick(e);
                   }}
                   id="2"
-                  disabled={this.state.purchasedData.data2}
+                  disabled={
+                    this.state.purchasedData.data2 ||
+                    !this.currentUser.isManager
+                  }
                   isPurchased={this.state.purchasedData.data2}
                   dataLink={
                     "https://sas-buydata-files.s3-us-west-1.amazonaws.com/" +
@@ -245,7 +251,10 @@ class BuyData extends Component {
                     this.handleClick(e);
                   }}
                   id="3"
-                  disabled={this.state.purchasedData.data3}
+                  disabled={
+                    this.state.purchasedData.data3 ||
+                    !this.currentUser.isManager
+                  }
                   isPurchased={this.state.purchasedData.data3}
                   dataLink={
                     "https://sas-buydata-files.s3-us-west-1.amazonaws.com/" +
@@ -262,7 +271,10 @@ class BuyData extends Component {
                     this.handleClick(e);
                   }}
                   id="4"
-                  disabled={this.state.purchasedData.data4}
+                  disabled={
+                    this.state.purchasedData.data4 ||
+                    !this.currentUser.isManager
+                  }
                   isPurchased={this.state.purchasedData.data4}
                   dataLink={
                     "https://sas-buydata-files.s3-us-west-1.amazonaws.com/" +
@@ -279,7 +291,10 @@ class BuyData extends Component {
                     this.handleClick(e);
                   }}
                   id="5"
-                  disabled={this.state.purchasedData.data5}
+                  disabled={
+                    this.state.purchasedData.data5 ||
+                    !this.currentUser.isManager
+                  }
                   isPurchased={this.state.purchasedData.data5}
                   dataLink={
                     "https://sas-buydata-files.s3-us-west-1.amazonaws.com/" +
@@ -295,7 +310,10 @@ class BuyData extends Component {
                     this.handleClick(e);
                   }}
                   id="6"
-                  disabled={this.state.purchasedData.data6}
+                  disabled={
+                    this.state.purchasedData.data6 ||
+                    !this.currentUser.isManager
+                  }
                   isPurchased={this.state.purchasedData.data6}
                   dataLink={
                     "https://sas-buydata-files.s3-us-west-1.amazonaws.com/" +

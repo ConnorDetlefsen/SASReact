@@ -263,6 +263,9 @@ class BuyRides3 extends Component {
                   purchased={this.state.ridesPurchased.ride17}
                   onClick={this.handleClick}
                   id={ride17.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   image={Tilt}
@@ -272,6 +275,9 @@ class BuyRides3 extends Component {
                   purchased={this.state.ridesPurchased.ride18}
                   onClick={this.handleClick}
                   id={ride18.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   image={Gravitron}
@@ -281,6 +287,9 @@ class BuyRides3 extends Component {
                   purchased={this.state.ridesPurchased.ride19}
                   onClick={this.handleClick}
                   id={ride19.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   image={Round}
@@ -290,6 +299,9 @@ class BuyRides3 extends Component {
                   purchased={this.state.ridesPurchased.ride20}
                   onClick={this.handleClick}
                   id={ride20.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   image={Zipper}
@@ -299,6 +311,9 @@ class BuyRides3 extends Component {
                   purchased={this.state.ridesPurchased.ride21}
                   onClick={this.handleClick}
                   id={ride21.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   image={Ferris}
@@ -308,6 +323,9 @@ class BuyRides3 extends Component {
                   purchased={this.state.ridesPurchased.ride22}
                   onClick={this.handleClick}
                   id={ride22.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   image={Bumper}
@@ -317,6 +335,9 @@ class BuyRides3 extends Component {
                   purchased={this.state.ridesPurchased.ride23}
                   onClick={this.handleClick}
                   id={ride23.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
                 <Ride
                   image={Carousel}
@@ -326,6 +347,9 @@ class BuyRides3 extends Component {
                   purchased={this.state.ridesPurchased.ride24}
                   onClick={this.handleClick}
                   id={ride24.ride_id}
+                  disabled={
+                    !this.currentUser.isManager && !this.currentUser.isEngineer
+                  }
                 ></Ride>
               </div>
               <br></br>
